@@ -1,0 +1,33 @@
+<%- include('includes/head.ejs', { title: 'Login' }) %>
+  <link rel="stylesheet" href="/styles/forms.css">
+  <link rel="stylesheet" href="/styles/auth.css">
+  <link rel="stylesheet" href="/styles/landing-page.css">
+  </head>
+
+  <body>
+    <%- include('includes/header.ejs') %>
+      <main id="signup">
+        <h1>Login</h1>
+        <% if(inputData.hasError) { %>
+          <p id="input-error">
+            <%= inputData.message %>
+          </p>
+          <% } %>
+            <form action="/login" method="POST">
+              <div class="form-control">
+                <label for="id">ID</label>
+                <input type="text" id="id" name="id" required value="<%= inputData.id %>">
+              </div>
+              <div class="form-control">
+                <label for="password">Password</label>
+                <input type="password" id="password" value="<%= inputData.password %>" name="password" required>
+              </div>
+              <button class="btn">Log in</button>
+            </form>
+      </main>
+  </body>
+  <footer>
+    <p>Contact at <a href="mailto:vithalagrawal6@gmail.com">vithalagrawal6@gmail.com</a> or <a href="tel:9304299280">9304299280</a> for further support and assistance!</p>
+  </footer>
+
+  </html>

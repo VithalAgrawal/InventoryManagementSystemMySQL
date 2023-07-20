@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('includes/head', { title: 'Receive Items' }) %>
+        <link rel="stylesheet" href="/styles/forms.css">
+        <script src="/scripts/receive-itemcode-dropdown.js" defer></script>
+</head>
+
+<body>
+    <%- include('includes/header') %>
+        <main>
+            <h1>Receive items</h1>
+            <form action="/receive/<%= item.item_code %>" method="POST">
+                <div class="form-row">
+                    <div class="form-control">
+                        <label for="code">Item Code</label>
+                        <datalist class="code" id="code" name="code">
+                            <option value="<%= item.item_code %>"></option>
+                            <% for (const i of items){ %>
+                                <% if (item.item_code !=i.item_code) { %>
+                                    <option class="code" value="<%= i.item_code %>">
+                                    </option>
+                                    <% } %>
+                                        <% } %>
+                        </datalist>
+                        <input class="code" type="search" value="<%= item.item_code %>" list="code">
+                    </div>
+                    <div class="form-control">
+                        <label for="itemnum">Item No.</label>
+                        <input type="text" value="IT<%= (+(item.item_no)) %>" id="itemnum" name="itemnum" readonly>
+                    </div>
+                    <div class="form-control">
+                        <label for="name">Item Name</label>
+                        <input type="text" id="name" name="name" value="<%= item.item_name %>" readonly>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-control">
+                        <label for="model">Model</label>
+                        <input type="text" id="model" name="model" value="<%= item.model %>" readonly>
+                    </div>
+                    <div class="form-control">
+                        <label for="make">Make</label>
+                        <input type="text" id="make" name="make" value="<%= item.make %>" readonly>
+                    </div>
+                </div>
+                <div class="form-control">
+                    <label for="description">Description</label>
+                    <input type="text" class="description" id="description" name="description"
+                        value="<%= item.description %>" readonly>
+                </div>
+                <div class="form-row">
+                    <div class="form-control">
+                        <label for="balance">Balance</label>
+                        <input type="number" id="balance" name="balance" value="<%= item.quantity_on_hand %>" readonly>
+                    </div>
+                    <div class="form-control">
+                        <label for="um">Unit of Measurement</label>
+                        <input type="text" id="um" name="um" value="<%= item.unit_of_measurement %>" readonly>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-control">
+                        <label for="quantity">Receive Quantity</label>
+                        <input type="number" id="quantity" name="quantity" min="0" required>
+                    </div>
+                    <div class="form-control">
+                        <label for="remarks">Remarks</label>
+                        <input type="text" id="remarks" name="remarks">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-control">
+                        <label for="receivedfrom">Received From</label>
+                        <input type="text" id="receivedfrom" name="receivedfrom">
+                    </div>
+                    <div class="form-control">
+                        <label for="receiveddate">Received Date</label>
+                        <input type="date" id="receiveddate" name="receiveddate" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-control">
+                        <button class="btn">Receive Item</button>
+                    </div>
+                </div>
+                <div class="form-control">
+                    <input type="hidden" id="receivedby" name="receivedby" value="<%= locals.user.id %>">
+                </div>
+                <div class="form-control">
+                    <input type="hidden" value="<%= (+(item.item_no)) %>" id="itemno" name="itemno" readonly>
+                </div>
+            </form>
+        </main>
+</body>
+
+</html>

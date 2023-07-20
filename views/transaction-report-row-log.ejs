@@ -1,0 +1,50 @@
+<tr>
+    <td>
+        <%=// transaction.item_no %>
+    </td>
+    <td>
+        <%=// transaction.item_code %>
+    </td>
+    <td>
+        <%=/// transaction.item_name %>
+    </td>
+    <td>
+        <%=// transaction.description %>
+    </td>
+    <td>
+        <%=// transaction.make %>
+    </td>
+    <td>
+        <%=// transaction.model %>
+    </td>
+    <td>
+        <%= transaction.quantity %>
+    </td>
+    <td>
+        <%= transaction.unit_of_measurement %>
+    </td>
+    <td>
+        <%= transaction.transaction_type %>
+    </td>
+    <td>
+        <%= transaction.transactioned_by %>
+    </td>
+    <% if(transaction.transactioned_date !==null){ %>
+        <td>
+            <%= transaction.transactioned_date.getDate() %>/<%= transaction.transactioned_date.getMonth() +1 %>/<%=
+                        transaction.transactioned_date.getFullYear() %>
+        </td>
+    <% } else { %>
+        <td>
+        </td>
+    <% } %>
+    <td>
+        <%= transaction.transactioned_with %>
+    </td>
+    <td>
+        <%= transaction.balance %>
+    </td>
+    <td>
+        <%= transaction.remarks %>
+    </td>
+</tr>

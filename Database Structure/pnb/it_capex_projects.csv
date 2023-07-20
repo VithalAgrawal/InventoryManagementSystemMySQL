@@ -1,0 +1,9 @@
+Field,Type,Null,Key,Default,Extra
+no,int,NO,UNI,NULL,auto_increment
+cp_no,varchar(255),NO,PRI,NULL,
+description,varchar(255),NO,,NULL,
+category,varchar(255),YES,,NULL,
+planned,varchar(45),NO,,NULL,
+fy,varchar(45),YES,,NULL,
+created_by,varchar(255),NO,,NULL,
+created_date,date,NO,,NULL,

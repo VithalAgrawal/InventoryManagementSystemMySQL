@@ -1,0 +1,24 @@
+<header id="main-header">
+  <div id="logo">
+    <a href="/"><img src="/images/Hindalco_Logo.png" alt="Hindalco_Logo"></a>
+  </div>
+  <nav>
+    <ul>
+      <li><a class="btn" href="/">Home</a></li>
+      <li><a class="btn" href="/pandb">P&B</a></li>
+      <li><a class="btn" href="/capex">CapEx</a></li>
+      <li><a class="btn" href="/itcapex">IT CapEx</a></li>
+      <li><a class="btn" href="/smallcapex">Small CapEx</a></li>
+      <% if(!locals.isAuth) { %>
+        <li><a class="btn" href="/login">Login</a></li>
+      <% } %>
+      <% if(locals.isAuth) { %>
+        <li>
+          <form action="/logout" method="POST">
+            <button class="btn">Logout</button>
+          </form>
+        </li> 
+      <% } %>
+    </ul>
+  </nav>
+</header>

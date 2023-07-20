@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('includes/head', { title: 'Issue Items' }) %>
+        <link rel="stylesheet" href="/styles/forms.css">
+        <script src="/scripts/issue-it-capex-itemno-dropdown.js" defer></script>
+</head>
+
+<body>
+    <%- include('includes/header') %>
+        <main>
+            <h1>Issue items</h1>
+            <form action="/itcapexissue/<%= item.item_code %>" method="POST">
+                <div class="form-row">
+                    <div class="form-control">
+                        <label for="cpno">CP No.</label>
+                        <select class="cpno" id="cpno" name="cpno">
+                            <% for (const i of projects){ %>
+                                <option id="cpno" class="cpno" value="<%= i.cp_no %>">
+                                    <%= i.cp_no %>
+                                </option>
+                                <% } %>
+                        </select>
+                    </div>
+                    <div class="form-control">
+                        <label for="code">Item Code</label>
+                        <datalist class="code" id="code" name="code">
+                            <option value="<%= item.item_code %>"></option>
+                            <% for (const i of items){ %>
+                                <% if (item.item_code !=i.item_code) { %>
+                                    <option class="code" value="<%= i.item_code %>">
+                                    </option>
+                                    <% } %>
+                                        <% } %>
+                        </datalist>
+                        <input class="code" type="search" value="<%= item.item_code %>" list="code">
+                    </div>
+                </div>
+
+
+                <div class="form-row">
+                    <div class="form-control">
+                        <label for="itemnum">Item No.</label>
+                        <input type="text" value="IT<%= (+(item.item_no)) %>" id="itemnum" name="itemnum" readonly>
+                    </div>
+                    <div class="form-control">
+                        <label for="name">Item Name</label>
+                        <input type="text" id="name" name="name" value="<%= item.item_name %>" readonly>
+                    </div>
+                    <div class="form-control">
+                        <label for="model">Model</label>
+                        <input type="text" id="model" name="model" value="<%= item.model %>" readonly>
+                    </div>
+                    <div class="form-control">
+                        <label for="make">Make</label>
+                        <input type="text" id="make" name="make" value="<%= item.make %>" readonly>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-control">
+                        <label for="description">Description</label>
+                        <input type="text" class="description" id="description" name="description"
+                            value="<%= item.description %>" readonly>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-control">
+                        <label for="quantity">Issue Quantity</label>
+                        <input type="number" id="quantity" name="quantity" min="0" required>
+                    </div>
+                    <div class="form-control">
+                        <label for="um">Unit of Measurement</label>
+                        <input type="text" id="um" name="um" value="<%= item.unit_of_measurement %>" readonly>
+                    </div>
+                    <div class="form-control">
+                        <label for="issueddate">Issued Date</label>
+                        <input type="date" id="issueddate" name="issueddate" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-control">
+                        <label for="issuedto">Issued To</label>
+                        <input type="text" id="issuedto" name="issuedto" required>
+                    </div>
+                    <div class="form-control">
+                        <label for="remarks">Remarks</label>
+                        <input type="text" id="remarks" name="remarks">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-control">
+                        <button class="btn">Issue Item</button>
+                    </div>
+                </div>
+                <div class="form-control">
+                    <input type="hidden" id="issuedby" name="issuedby" value="<%= locals.user.id %>">
+                </div>
+                <div class="form-control">
+                    <input type="hidden" value="<%= (+(item.item_no)) %>" id="itemno" name="itemno" readonly>
+                </div>
+            </form>
+        </main>
+</body>
+
+</html>

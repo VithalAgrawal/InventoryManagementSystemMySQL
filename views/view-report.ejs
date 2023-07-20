@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('includes/head', { title: 'Report' }) %>
+        <link rel="stylesheet" href="/styles/tables.css">
+        <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+        <script src="/scripts/export-to-excel.js" defer></script>
+        <script src="/scripts/colour.js" defer></script>
+</head>
+
+<body>
+    <%- include('includes/header') %>
+        <main>
+            <h1>Report</h1>
+            <div>
+                <div>
+                    <table id="reportTable">
+                        <tr>
+                            <th>No.</th>
+                            <th>Item Code</th>
+                            <th>Item Name</th>
+                            <th>Make</th>
+                            <th>Model</th>
+                            <th>Quantity on hand</th>
+                            <th>UM</th>
+                            <th>Description</th>
+                            <th>Created By</th>
+                            <th>Created Date</th>
+                            <th>Last Updated By</th>
+                            <th>Last Updated Date</th>
+                            <th>Critical</th>
+                        </tr>
+                        <% for (var i=0; i < items.length; i++) { %>
+                            <%- include('report-row', {item: items[i], critical: criticals[i]}) %>
+                                <% } %>
+                    </table>
+                </div>
+                <button class="btn" id="exportButton">Export Report</button>
+            </div>
+        </main>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('includes/head', { title: 'Projects' }) %>
+        <link rel="stylesheet" href="/styles/tables.css">
+        <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+        <script src="/scripts/export-to-excel.js" defer></script>
+</head>
+
+<body>
+    <%- include('includes/header') %>
+        <main>
+            <h1>IT CapEx Projects</h1>
+            <div>
+                <div>
+                    <table id="reportTable">
+                        <tr>
+                            <th>Serial No.</th>
+                            <th>CP No.</th>
+                            <th>Project Description</th>
+                            <th>Project Category</th>
+                            <th>Planned/Unplanned</th>
+                            <th>FY/Duration</th>
+                            <th>Created By</th>
+                            <th>Created Date</th>
+                        </tr>
+                        <% for (var i=0; i < projects.length; i++) { %>
+                            <%- include('it-project-row', {project: projects[i]}) %>
+                                <% } %>
+                    </table>
+                </div>
+                <button class="btn" id="exportButton">Export Report</button>
+            </div>
+        </main>
+</body>
+
+</html>

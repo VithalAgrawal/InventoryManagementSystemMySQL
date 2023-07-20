@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('includes/head', { title: 'Project Master' }) %>
+        <link rel="stylesheet" href="/styles/forms.css">
+</head>
+
+<body>
+    <%- include('includes/header') %>
+        <main>
+            <h1>Create a Project</h1>
+            <form action="/smallcapexproject" method="POST">
+                <div class="form-row">
+                    <div class="form-control">
+                        <label for="snum">Serial No.</label>
+                        <input type="number" value="<%= (+(item.no) + 1) %>" id="snum" name="snum" readonly>
+                    </div>
+                    <div class="form-control">
+                        <label for="cpno">CP No.</label>
+                        <input type="text" id="cpno" name="cpno" required>
+                    </div>
+                    <div class="form-control">
+                        <label for="category">Category</label>
+                        <input type="text" id="category" name="category">
+                    </div>
+                </div>
+                <div class="form-control">
+                    <label for="description">Description</label>
+                    <input type="text" class="description" id="description" name="description" required maxlength="255">
+                </div>
+                <div class="form-row">
+                    <div class="form-control">
+                        <label for="planned">Planned/Unplanned</label>
+                        <select name="planned" id="planned">
+                            <option value="Planned">Planned</option>
+                            <option value="Unplanned">Unplanned</option>
+                        </select>
+                    </div>
+                    <div class="form-control">
+                        <label for="fy">Financial Year/Duration</label>
+                        <input type="text" id="fy" name="fy">
+                    </div>
+                    <div class="form-control">
+                        <label for="createddate">Created Date</label>
+                        <input type="date" id="createddate" name="createddate" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <button class="btn">Create Project</button>
+                </div>
+                <div class="form-control">
+                    <input type="hidden" value="<%= (+(item.no) + 1) %>" id="projno" name="projno" readonly>
+                </div>
+            </form>
+        </main>
+</body>
+
+</html>

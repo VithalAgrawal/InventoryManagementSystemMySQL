@@ -1,0 +1,26 @@
+{
+  "name": "inventorymanagementsystemmysql",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "Vithal",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-mysql-session": "^3.0.0",
+    "express-session": "^1.17.3",
+    "forever": "^4.0.3",
+    "mysql2": "^3.4.3",
+    "node-notifier": "^10.0.1",
+    "nodemon": "^2.0.22",
+    "path": "^0.12.7",
+    "uuid": "^9.0.0"
+  },
+  "description": "Inventory Management System using Node.js, Express.js, MySQL, EJS and Express-Session for Hindalco Industries Ltd., Muri Works",
+  "devDependencies": {}
+}

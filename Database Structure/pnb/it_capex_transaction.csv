@@ -1,0 +1,17 @@
+Field,Type,Null,Key,Default,Extra
+transaction_no,int,NO,PRI,NULL,auto_increment
+item_no,int,NO,,NULL,
+item_code,varchar(255),NO,,NULL,
+item_name,varchar(255),NO,,NULL,
+model,varchar(255),YES,,NULL,
+quantity,int,NO,,NULL,
+unit_of_measurement,varchar(45),NO,,NULL,
+cp_no,varchar(255),NO,,NULL,
+transactioned_with,varchar(255),YES,,NULL,
+transactioned_by,varchar(255),NO,,NULL,
+transactioned_date,date,NO,,NULL,
+make,varchar(255),YES,,NULL,
+remarks,longtext,YES,,NULL,
+transaction_id,varchar(255),NO,,NULL,
+transaction_type,varchar(45),NO,,NULL,
+balance,int,NO,,NULL,

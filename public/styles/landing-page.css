@@ -1,0 +1,51 @@
+h3{
+  margin-top: 5rem;
+  margin-left: 5rem;
+}
+
+#all-buttons {
+  text-align: center;
+  display: flex;
+  width: 45%;
+  justify-content: space-around;
+}
+
+.all-buttons {
+  text-align: center;
+  display: flex;
+  margin: 4rem auto;
+  width: 45%;
+  justify-content: space-around;
+}
+
+#all-buttons btn{
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+.all-buttons btn{
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+footer {
+  height: 2.25rem;
+  position: absolute;
+  font-size: 0.75rem;
+  bottom: 0;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  background-color: #e4edf6;
+  color: rgb(129, 127, 127);
+}
+
+footer p{
+  text-align: end;
+  margin: 0.5rem 1rem;
+}
+
+footer a {
+  color: rgb(107, 107, 172);
+  text-decoration: none;
+}

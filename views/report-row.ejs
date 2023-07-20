@@ -1,0 +1,57 @@
+<tr id="colour">
+    <td>
+        <%= item.item_no %>
+    </td>
+    <td>
+        <form action="/log/<%= item.item_code %>" method="GET">
+            <button type="submit" class="btn btn-alt">
+                <%= item.item_code %>
+            </button>
+        </form>
+    </td>
+    <td>
+        <%= item.item_name %>
+    </td>
+    <td>
+        <%= item.make %>
+    </td>
+    <td>
+        <%= item.model %>
+    </td>
+    <td id="quantity">
+        <%= item.quantity_on_hand %>
+    </td>
+    <td>
+        <%= item.unit_of_measurement %>
+    </td>
+    <td>
+        <%= item.description %>
+    </td>
+    <td>
+        <%= item.created_by %>
+    </td>
+    <td>
+        <%= item.created_date.getDate() %>/<%= item.created_date.getMonth() +1 %>/<%= item.created_date.getFullYear() %>
+    </td>
+    <td>
+        <%= item.last_updated_by %>
+    </td>
+    <% if(item.last_updated_date !==null){ %>
+        <td>
+            <%= item.last_updated_date.getDate() %>/<%= item.last_updated_date.getMonth() +1 %>/<%=
+                        item.last_updated_date.getFullYear() %>
+        </td>
+        <% } else { %>
+            <td>
+            </td>
+            <% } %>
+                <% if(critical !==0) {%>
+                    <td>
+                        <%= critical %>
+                    </td>
+                    <% } else { %>
+                        <td>
+                            NA
+                        </td>
+                        <% } %>
+</tr>

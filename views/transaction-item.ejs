@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('includes/head', { title: 'Item Log' }) %>
+        <link rel="stylesheet" href="/styles/tables.css">
+        <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+        <script src="/scripts/three-class-export-to-excel.js" defer></script>
+</head>
+
+<body>
+    <%- include('includes/header') %>
+        <main>
+            <h1>Item Status</h1>
+            <div>
+                <div>
+                    <table class="reportTable" id="issue-receive-log">
+                        <tr>
+                            <th>No.</th>
+                            <th>Item Code</th>
+                            <th>Item Name</th>
+                            <th>Make</th>
+                            <th>Model</th>
+                            <th>Quantity on hand</th>
+                            <th>UM</th>
+                            <th>Description</th>
+                            <th>Initial Quantity</th>
+                            <th>Created By</th>
+                            <th>Created Date</th>
+                            <th>Last Updated By</th>
+                            <th>Last Updated Date</th>
+                        </tr>
+                        <% for (const item of items){ %>
+                            <%- include('report-row-inventory', {item: item}) %>
+                                <% } %>
+                    </table>
+                    <div>
+                        <h1>All transactions from <%= startDate %> to <%= endDate %>
+                        </h1>
+                        <div id="issue-receive-log">
+                            <div id="issue-table">
+                                <h3 class="table-name">Issue Log</h3>
+                                <table class="reportTable">
+                                    <% if(issues && issues.length !=0) {%>
+                                        <tr>
+                                            <th>Quantity issued</th>
+                                            <th>UM</th>
+                                            <th>Issued By</th>
+                                            <th>Issue Date</th>
+                                            <th>Issued To</th>
+                                            <th>Balance</th>
+                                            <th>Remarks</th>
+                                        </tr>
+                                        <% for (const issue of issues){ %>
+                                            <%- include('transaction-row', {item: issue}) %>
+                                                <% } %>
+                                </table>
+                                <% } else {%>
+                                    <p>No transactions found</p>
+                                    <% } %>
+                            </div>
+                            <div id="receive-table">
+                                <h3 class="table-name">Receive Log</h3>
+                                <table class="reportTable">
+                                    <% if(receives && receives.length !=0) {%>
+                                        <tr>
+                                            <th>Quantity received</th>
+                                            <th>UM</th>
+                                            <th>Received By</th>
+                                            <th>Receive Date</th>
+                                            <th>Received From</th>
+                                            <th>Balance</th>
+                                            <th>Remarks</th>
+                                        </tr>
+                                        <% for (const receive of receives){ %>
+                                            <%- include('transaction-row', {item: receive}) %>
+                                                <% } %>
+                                </table>
+                                <% } else {%>
+                                    <p>No transactions found</p>
+                                    <% } %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn" id="exportButton">Export Report</button>
+            </div>
+        </main>
+</body>
+
+</html>

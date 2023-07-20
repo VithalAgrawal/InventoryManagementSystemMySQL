@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('includes/head', { title: 'Items' }) %>
+        <link rel="stylesheet" href="/styles/tables.css">
+        <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+        <script src="/scripts/export-to-excel.js" defer></script>
+</head>
+
+<body>
+    <%- include('includes/header') %>
+        <main>
+            <h1>CapEx Item List</h1>
+            <div>
+                <div>
+                    <table id="reportTable">
+                        <tr>
+                            <th>No.</th>
+                            <th>Item Code</th>
+                            <th>Item Name</th>
+                            <th>Make</th>
+                            <th>Model</th>
+                            <th>UM</th>
+                            <th>Description</th>
+                            <th>Created By</th>
+                            <th>Created Date</th>
+                        </tr>
+                        <% for (var i = 0; i < items.length; i++) { %>
+                            <%- include('capex-inventory-report-row', {item: items[i]}) %>
+                        <% } %>
+                    </table>
+                </div>
+                <button class="btn" id="exportButton">Export Report</button>
+            </div>
+        </main>
+</body>
+
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('includes/head', { title: 'Date Range' }) %>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+</head>
+
+<body>
+    <%- include('includes/header') %>
+        <main style="width:70%; display: flex; justify-content: space-around;">
+            <h2>Select Transaction Date Range:</h2>
+            <input style="width:50%; height: 3rem;" type="text" id="transactionDateRange" data-itemcode="<%= itemcode %>">
+            <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+            <script src="/scripts/date-range-picker.js"></script>
+        </main>
+</body>
+
+</html>

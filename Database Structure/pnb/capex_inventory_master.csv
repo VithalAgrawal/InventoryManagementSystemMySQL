@@ -1,0 +1,10 @@
+Field,Type,Null,Key,Default,Extra
+item_no,int,NO,PRI,NULL,auto_increment
+item_code,varchar(255),NO,,NULL,
+item_name,varchar(255),NO,,NULL,
+model,varchar(255),YES,,NULL,
+description,varchar(255),YES,,NULL,
+unit_of_measurement,varchar(45),NO,,NULL,
+created_by,varchar(45),YES,,NULL,
+created_date,date,YES,,NULL,
+make,varchar(255),YES,,NULL,

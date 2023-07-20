@@ -1,0 +1,4 @@
+Field,Type,Null,Key,Default,Extra
+session_id,varchar(128),NO,PRI,NULL,
+expires,int,NO,,NULL,
+data,mediumtext,YES,,NULL,

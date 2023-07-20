@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('includes/head', { title: 'Project Master' }) %>
+        <link rel="stylesheet" href="/styles/forms.css">
+        <script src="/scripts/project-edit-dropdown.js" defer></script>
+</head>
+
+<body>
+    <%- include('includes/header') %>
+        <main>
+            <h1>Edit Project</h1>
+            <form action="/smallcapexprojectedit" method="POST">
+                <div class="form-row">
+                    <div class="form-control">
+                        <label for="snum">Serial No.</label>
+                        <input type="number" value="<%= +(item.no) %>" id="snum" name="snum" readonly>
+                    </div>
+                    <div class="form-control">
+                        <label for="cpno">CP No.</label>
+                        <select class="cpno" id="cpno" name="cpno">
+                            <option id="cpno" value="<%= item.cp_no %>">
+                                <%= item.cp_no %>
+                            </option>
+                            <% for (const i of items){ %>
+                                <% if (item.cp_no !=i.cp_no) { %>
+                                    <option id="cpno" class="cpno" value="<%= i.cp_no %>">
+                                        <%= i.cp_no %>
+                                    </option>
+                                    <% } %>
+                                        <% } %>
+                        </select>
+                    </div>
+                    <div class="form-control">
+                        <label for="category">Category</label>
+                        <input type="text" id="category" name="category" value="<%= item.category %>" readonly>
+                    </div>
+                </div>
+                <div class="form-control">
+                    <label for="description">Description</label>
+                    <input type="text" class="description" id="description" name="description"
+                        value="<%= item.description %>" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-control">
+                        <label for="planned">Planned/Unplanned</label>
+                        <input type="text" id="planned" name="planned" value="<%= item.planned %>" readonly>
+                    </div>
+                    <div class="form-control">
+                        <label for="fy">Financial Year/Duration</label>
+                        <input type="text" id="fy" name="fy" value="<%= item.fy %>" required>
+                    </div>
+                    <div class="form-control">
+                        <label for="createddate">Created Date</label>
+                        <input type="text" id="createddate" name="createddate"
+                            value="<%= item.created_date.getDate() %>/<%= item.created_date.getMonth() +1 %>/<%= item.created_date.getFullYear()%>"
+                            readonly>
+                    </div>
+                    <div class="form-control">
+                        <label for="createdby">Created By</label>
+                        <input type="text" id="createdby" name="createdby" value="<%= item.created_by %>" readonly>
+                    </div>
+                </div>
+                <div class="form-control">
+                    <input type="hidden" value="<%= (+(item.no) + 1) %>" id="projno" name="projno" readonly>
+                </div>
+                <div class="form-row">
+                    <button class="btn">Save Changes</button>
+                </div>
+            </form>
+        </main>
+</body>
+
+</html>

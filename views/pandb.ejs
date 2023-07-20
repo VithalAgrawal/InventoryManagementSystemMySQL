@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('includes/head', { title: 'P&B' }) %>
+  <link rel="stylesheet" href="/styles/landing-page.css">
+  <link rel="stylesheet" href="/styles/pandb.css">
+</head>
+
+<body>
+  <%- include('includes/header') %>
+  <h2>IT STORE INVENTORY MANAGEMENT SYSTEM</h2>
+  <main id="all-buttons">
+    <form action="/master" method="GET">
+      <button class="btn" id="master">Inventory Master</button>
+    </form>
+    <form action="/issue" method="GET">
+      <button class="btn" id="issue">Issue</button>
+    </form>
+    <form action="/receive" method="GET">
+      <button class="btn" id="receive">Receive</button>
+    </form>
+    <form action="/report" method="GET">
+      <button class="btn" id="report">Report</button>
+    </form>
+  </main> 
+</body>
+
+</html>

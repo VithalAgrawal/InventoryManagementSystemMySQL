@@ -1,0 +1,31 @@
+<tr>
+    <td>
+        <%= project.no %>
+    </td>
+    <td>
+        <form action="/viewsmallcapexproject/<%= project.no %>" method="GET">
+            <button type="submit" class="btn btn-alt">
+                <%= project.cp_no %>
+            </button>
+        </form>
+    </td>
+    <td>
+        <%= project.description %>
+    </td>
+    <td>
+        <%= project.category %>
+    </td>
+    <td>
+        <%= project.planned %>
+    </td>
+    <td>
+        <%= project.fy %>
+    </td>
+    <td>
+        <%= project.created_by %>
+    </td>
+    <td>
+        <%= project.created_date.getDate() %>/<%= project.created_date.getMonth() +1 %>/<%=
+                    project.created_date.getFullYear() %>
+    </td>
+</tr>

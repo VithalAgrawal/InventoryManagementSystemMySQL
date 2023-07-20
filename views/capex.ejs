@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('includes/head', { title: 'CapEx' }) %>
+  <link rel="stylesheet" href="/styles/pandb.css">
+  <link rel="stylesheet" href="/styles/landing-page.css">
+</head>
+
+<body>
+  <%- include('includes/header') %>
+  <h2>IT STORE INVENTORY MANAGEMENT SYSTEM</h2>
+  <main>
+    <div class="all-buttons">
+      <form action="/capexmaster" method="GET">
+        <button class="btn" id="master">Inventory Master</button>
+      </form>
+      <form action="/capexinventory" method="GET">
+        <button class="btn" id="capexinventory">View Inventory</button>
+      </form>
+    </div>
+    <div class="all-buttons">
+      <form action="/smallcapex" method="GET">
+        <button class="btn" id="small-capex">Small CapEx</button>
+      </form>
+      <form action="/itcapex" method="GET">
+        <button class="btn" id="it-capex">IT CapEx</button>
+      </form>
+    </div>
+  </main> 
+</body>
+
+</html>
