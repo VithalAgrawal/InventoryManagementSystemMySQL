@@ -34,4 +34,4 @@ The Inventory Management System is a web-based application developed as part of 
 
 1. Configure the MySQL database settings as specified in `Database Structure` folder.
 2. Run the application: `npm start`
-3. Access the application in your web browser: `http://localhost:3000`
+3. Access the application in your web browser: `http://localhost:3080`
